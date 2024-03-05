@@ -77,7 +77,9 @@ public class Main {
         String password = scanner.nextLine();
         User user = authService.logIn(username, password);
         System.out.println("Welcome, " + user.getUsername() + "!");
-        // TODO Later: Add the to-do list operations
+        // TODO Now: Create an instance of the ToDoList class with the logged-in user and call the run method
+        ToDoList list = new ToDoList(user);
+        list.run();
     }
 
     /**
@@ -91,6 +93,12 @@ public class Main {
         String password = scanner.nextLine();
         User user = authService.signUp(username, password);
         // TODO Later: Shows a message based on the result
+        if (user != null) {
+            System.out.println("Welcome " + user.getUsername());
+        }
+        else {
+            System.out.println("Failed to sign up. Please try again.");
+        }
     }
 
     /**
