@@ -93,6 +93,12 @@ public class Main {
         String password = scanner.nextLine();
         User user = authService.signUp(username, password);
         // TODO Later: Shows a message based on the result
+        if (user != null) {
+            System.out.println("Welcome " + user.getUsername());
+        }
+        else {
+            System.out.println("Failed to sign up. Please try again.");
+        }
     }
 
     /**
